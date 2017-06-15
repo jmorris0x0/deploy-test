@@ -1,0 +1,9 @@
+########################
+# CircleCI config file
+########################
+machine:
+  services:
+    - docker
+test:
+  post:
+    - ./bin/deploy.sh
