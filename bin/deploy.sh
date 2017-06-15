@@ -25,10 +25,12 @@ echo
 
 echo
 
+echo "Checking $deploy_folder for changes since last merge."
+
 if [ "$(check_deploy_changes)" == 1 ]; then
     echo "Yes change to this branch in deploy/"
 else 
-    echo "No change to this branch in deploy/"
+    echo "No changes found in this branch since last merge."
 fi
 
 
