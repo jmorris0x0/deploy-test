@@ -13,8 +13,6 @@ check_deploy_changes() {
     last_merge_commit=$(git --no-pager log --pretty=oneline --format=format:%H --merges -n 1)
     DIFF=$(git diff $last_merge_commit -- $deploy_folder/)
 
-    echo $DIFF
-
     if [ "$DIFF" ]; then
         echo 1
     else echo 0
@@ -27,6 +25,8 @@ echo
 
 echo "Checking $deploy_folder for changes since last merge."
 
+
+
 if [ "$(check_deploy_changes)" == 1 ]; then
     echo "Yes change to this branch in deploy/"
 else 
@@ -35,3 +35,6 @@ fi
 
 
 
+
+last_merge_commit=$(git --no-pager log --pretty=oneline --format=format:%H --merges -n 1)
+DIFF=$(git diff $last_merge_commit -- $deploy_folder/)
